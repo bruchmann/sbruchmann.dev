@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "type": "module",
+  "name": "@sbruchmann/www",
+  "version": "4.0.0",
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "dev": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^5.0.0",
+    "express-favicon": "^2.0.4",
+    "helmet": "^7.1.0"
+  }
+}
