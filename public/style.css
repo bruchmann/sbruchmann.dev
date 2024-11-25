@@ -73,6 +73,9 @@
 }
 
 body {
+	display: grid;
+	grid-template-columns: minmax(1fr, 256px) auto;
+	gap: 1em;
 	place-content: center;
 	min-block-size: 100svb;
 	margin: 0;
@@ -100,8 +103,31 @@ header {
 }
 
 main {
+	display: flex;
+	place-items: center;
 	margin: 0.5em 0 1em 0;
-	font-size: 1.5rem;
+}
+
+main p {
+	flex-basis: 75%;
+	flex-shrink: 0;
+	flex-grow: 1;
+	min-width: 0;
+}
+
+main img {
+	flex-basis: 25%;
+	flex-shrink: 1;
+	flex-grow: 0;
+	min-width: 0;
+	object-fit: cover;
+	display: inline-block;
+	max-inline-size: 100%;
+	grid-column: 1;
+	grid-row: 1;
+	vertical-align: baseline;
+	font-style: italic;
+	color: var(--clr-flexoki-tx2);
 }
 
 footer {
