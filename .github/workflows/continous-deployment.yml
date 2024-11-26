@@ -1,0 +1,25 @@
+name: Continous Deployment
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 45.76.90.53 >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        run: |
+          ssh sbruchmann@45.76.90.53 << 'EOF'
+          cd /home/sbruchmann/www/
+          git pull --rebase origin main
+          EOF
