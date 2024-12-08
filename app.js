@@ -20,6 +20,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = getDirectoryName(__filename);
 
 const app = express();
+app.use((_, res) => {
+	res.redirect("https://sbruchmann.me");
+})
 app.use(compression());
 app.use(
 	helmet.contentSecurityPolicy({
