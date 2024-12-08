@@ -25,7 +25,7 @@ app.use(
 	helmet.contentSecurityPolicy({
 		useDefaults: true,
 		directives: {
-			"script-src": ["'self'", "sbruchmann.me"],
+			"script-src": ["'self'", "sbruchmann.dev"],
 			"style-src": null,
 		},
 	})
